@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="pt-br"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <title>Lanchonet</title>
+  <link rel="stylesheet" type="text/css" href="Layout.css" />
+</head>
+<body id="corpo">
+<div id="header">
+  Lanchonet
+</div>
+<div id="menu">
+  <a class="link" href="cardapio.php">&nbsp;&nbsp;Cardapio &nbsp;&nbsp;&nbsp;</a>
+  <a class="link" href="pedidos.php">&nbsp;&nbsp;Fila de Pedidos &nbsp;&nbsp;</a> 
+  <a class="link" href="cadastro.html">&nbsp;&nbsp;Cadastro&nbsp;&nbsp;</a>
+</div>
+<br class="clearfloat">
+<div id="login">	
+Login:
+Senha:
+</div>
+<div id="bgwhite">
+<div id="conteudo">
+	<form method="post" action="php/pedidobebida.php">
+		Hamburguer
+		<select id="sanduiche" name="bebida">
+			<option value="vazio">Selecione</option>
+			<option value="Suco de Laranja">Suco de Laranja</option>
+			<option value="Suco de Cacau">Suco de Cacau</option>
+			<option value="Suco de Acerola">Suco de Acerola</option>
+			<option value="Suco de Umbu">Suco de Umbu</option>
+			<option value="Coca Cola">Coca Cola</option>
+			<option value="Coca zero">Coca zero</option>
+			<option value="Sprite">Sprite</option>
+			<option value="Fanta">Fanta</option>
+			<option value="Fanta Uva">Fanta Uva</option>
+			<option value="Kuat">Kuat</option>
+		</select>
+		Quantidade
+		<input type="text" name="quantidade" size="1">
+		Observa&ccedil;&atilde;o
+		<input type="text" name="observacao" size="20">
+		<input id="comconf" type="submit" value="Confirmar Bebida"/><br><br>	<!-- Confirma e volta ao pedido -->
+	<form>
+	<table>
+			<tr>
+				<th>Bebida</th>
+				<th colspan="2">Valor</th>
+			</tr>
+			<tr>
+				<td>Suco de Laranja</td>
+				<td>R$</td>
+				<td>5,00</td>
+			</tr>
+			<tr>
+				<td>Suco de Cacau</td>
+				<td>R$</td>
+				<td>4,00</td>
+			</tr>
+			<tr>
+				<td>Suco de Acerola</td>
+				<td>R$</td>
+				<td>3,50</td>
+			</tr>
+			<tr>
+				<td>Suco de Umbu</td>
+				<td>R$</td>
+				<td>3,50</td>
+			</tr>
+			<tr>
+				<td>Coca Cola</td>
+				<td>R$</td>
+				<td>2,50</td>
+			</tr>
+			<tr>
+				<td>Coca Zero</td>
+				<td>R$</td>
+				<td>2,50</td>
+			</tr>
+			<tr>
+				<td>Sprite</td>
+				<td>R$</td>
+				<td>2,00</td>
+			</tr>
+			<tr>
+				<td>Fanta</td>
+				<td>R$</td>
+				<td>2,00</td>
+			</tr>
+			<tr>
+				<td>Fanta Uva</td>
+				<td>R$</td>
+				<td>2,00</td>
+			</tr>
+			<tr>
+				<td>Kuat</td>
+				<td>R$</td>
+				<td>2,00</td>
+			</tr>
+	</table>
+</div>
+</div>
+<br class="clearfloat">
+<div id="footer">
+Avenida Itabuna 760 - Ilhéus<br>
+Telefone:(73)3634-5555<br>
+Copyright&copy; Lanchonet&trade;
+</div>
+</body>
+</html>

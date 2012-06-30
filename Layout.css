@@ -1,0 +1,135 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face
+{
+font-family: cocacola;
+src: url('fontes/lokicola.ttf'),
+	 url('fontes/lokicola.eot');
+}
+
+*{
+	margin:0;
+	padding:0;
+}
+
+#corpo{
+	background-color:#F00;
+}
+
+#header{
+	font-family:cocacola;
+	font-size:50px;
+	color:#FFF;
+	text-align:center;
+}
+
+#menu{
+	font-family:cocacola;
+	float:right;
+	margin-right:1%;
+}
+
+#login{
+	display:none;
+}
+
+#bgwhite{
+	background-image:url(img/fundobranco.png);
+	height:27em;
+}
+
+#conteudo{
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:justify;
+	color:#000;
+	width:70%;
+	margin-right:18%;
+	float:right;
+	margin-top:1%;
+}
+
+#conteudo ul{
+	display: inline;
+	margin-left: 340px;
+}
+
+#footer{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+	text-align:center;
+}
+
+#imagem{
+	float:right;
+	margin-top:0;
+}
+
+#pedido{
+	font-weight:bold;
+	font-style:italic;
+}
+
+#butao{
+	padding:4px;
+	margin-left:5px;
+	margin-top:0;
+}
+
+td{
+	text-align:left;
+	padding:0.1em;
+}
+
+table, td, th{
+	border-collapse:collapse;
+	border:3px solid red;
+}
+
+
+
+#contcom{
+	margin-top:25px;
+	margin-left:-5px;
+	float:left;
+}
+
+
+#contbeb{
+	margin-top:25px;
+	margin-right:5px;
+	float:right;
+}
+
+#conttot{
+	position:relative;
+	top:330px;
+	margin-left:460px;
+}
+
+#bconfirm{
+	margin:auto;
+}
+
+.link{
+	text-decoration:none;
+	color:#F00;
+	font-size:28px;
+	background-color:#FFF;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border:hidden;
+	box-shadow:-3px -3px 3px #000;
+}
+
+label.error{
+	font-size:9px;
+	color:#FF0000;
+	margin-left:10em;
+}
+
+.clearfloat{
+	clear:both;
+	margin-bottom:0px;
+	margin-top:0px;
+}

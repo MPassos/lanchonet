@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="pt-br"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <title>Lanchonet</title>
+  <link rel="stylesheet" type="text/css" href="Layout.css" />
+</head>
+<body id="corpo">
+<div id="header">
+  Lanchonet
+</div>
+<div id="menu">
+  <a class="link" href="cardapio.php">&nbsp;&nbsp;Cardapio &nbsp;&nbsp;&nbsp;</a>
+  <a class="link" href="pedidos.php">&nbsp;&nbsp;Fila de Pedidos &nbsp;&nbsp;</a> 
+  <a class="link" href="cadastro.html">&nbsp;&nbsp;Cadastro&nbsp;&nbsp;</a>
+</div>
+<br class="clearfloat">
+<div id="login">	
+Login:
+Senha:
+</div>
+<div id="bgwhite">
+<div id="conteudo">
+	<form method="post" action="php/pedidocomida.php">
+		Hamburguer
+		<select id="sanduiche" name="sanduiche">
+			<option value="vazio">Selecione</option>
+			<option value="X-Burguer">X-Burguer</option>
+			<option value="X-Bacon">X-Bacon</option>
+			<option value="X-Frango">X-Frango</option>
+			<option value="X-Calabresa">X-Calabresa</option>
+			<option value="Triplo-X">Triplo-X</option>
+			<option value="X-File">X-File</option
+			><option value="X-Picanha">X-Picanha</option>
+			<option value="X-Bacon Egg">X-Bacon-egg</option>
+			<option value="X-Egg">X-Egg</option>
+			<option value="X-Y">X-Y</option>
+		</select>
+		Quantidade
+		<input type="text" name="quantidade" size="1">
+		Observa&ccedil;&atilde;o
+		<input type="text" name="observacao" size="10">
+		<input id="comconf" type="submit" value="Confirmar Hamburguer"/>	<!-- Confirma e volta ao pedido -->
+	<form>
+	<table>
+			<tr>
+				<th>Hamburguer</th>
+				<th>Composição</th>
+				<th colspan="2">Valor</th>
+			</tr>
+			<tr>
+				<td>X-Burguer</td>
+				<td>Hamburguer, queijo, salada</td>
+				<td>R$</td>
+				<td>4,50</td>
+			</tr>
+			<tr>
+				<td>X-Egg</td>
+				<td>Hamburguer, queijo, ovo, salada</td>
+				<td>R$</td>
+				<td>5,00</td>
+			</tr>
+			<tr>
+				<td>X-Frango</td>
+				<td>Frango desfiado, queijo, presunto, salada</td>
+				<td>R$</td>
+				<td>7,00</td>
+			</tr>
+			<tr>
+				<td>X-Calabresa</td>
+				<td>Calabresa, queijo, presunto, salada</td>
+				<td>R$</td>
+				<td>7,00</td>
+			</tr>
+			<tr>
+				<td>X-Filé</td>
+				<td>Filé fatiado, queijo, presunto, salada</td>
+				<td>R$</td>
+				<td>8,00</td>
+			</tr>
+			<tr>
+				<td>X-Picanha</td>
+				<td>Picanha fatiada, queijo, presunto, salada</td>
+				<td>R$</td>
+				<td>8,00</td>
+			</tr>
+			<tr>
+				<td>X-Bacon</td>
+				<td>Hamburguer, queijo, bacon, salada</td>
+				<td>R$</td>
+				<td>6,00</td>
+			</tr>
+			<tr>
+				<td>X-Bacon Egg</td>
+				<td>Hamburguer, queijo, bacon, ovo, salada</td>
+				<td>R$</td>
+				<td>7,00</td>
+			</tr>
+			<tr>
+				<td>X-Y</td>
+				<td>Hamburguer, calabresa, queijo, presunto, salada</td>
+				<td>R$</td>
+				<td>8,50</td>
+			</tr>
+			<tr>
+				<td>Triplo-X</td>
+				<td>Hamburguer, frango desfiado, calabresa, queijo, presunto, salada</td>
+				<td>R$</td>
+				<td>10,00</td>
+			</tr>
+	</table>
+</div>
+</div>
+<br class="clearfloat">
+<div id="footer">
+Avenida Itabuna 760 - Ilhéus<br>
+Telefone:(73)3634-5555<br>
+Copyright&copy; Lanchonet&trade;
+</div>
+</body>
+</html>
