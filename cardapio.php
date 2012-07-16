@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION == null){
+    header("Location: index.php");
+}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="pt-br"><head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -9,15 +16,16 @@
 <div id="header">
   Cardapio
 </div>
+    <h5>Bem vindo <?php echo $_SESSION['login']; ?> </h5>    
 <div id="menu">
-  <a class="link" href="index.html">&nbsp;&nbsp;Home&nbsp;&nbsp;</a>
+  <a class="link" href="index.php">&nbsp;&nbsp;Home&nbsp;&nbsp;</a>
   <a class="link" href="pedidos.php">&nbsp;&nbsp;Fila de Pedidos&nbsp;&nbsp;</a>
-  <a class="link" href="cadastro.html">&nbsp;&nbsp;Cadastro&nbsp;&nbsp;</a>
+  <a class="link" href="logout.php">&nbsp;&nbsp;Logout&nbsp;&nbsp;</a>
 </div>
 <br class="clearfloat">
 <div id="bgwhite">
 <div id="conteudo">
-  <form method="post" action="fecharpedido.php"> <?php //Como ainda não temos controle de sessão o pedido não pode ser cadastrado corretamente no banco sendo esta seção apenas uma breve demosntração da funcionalidade  ?>
+  <form method="post" action="fecharpedido.php"> <?php //Como ainda nï¿½o temos controle de sessï¿½o o pedido nï¿½o pode ser cadastrado corretamente no banco sendo esta seï¿½ï¿½o apenas uma breve demosntraï¿½ï¿½o da funcionalidade  ?>
 	<div id = "contcom">
 		<table>
 			<tr>
@@ -31,7 +39,7 @@
             <?php
 			$valor = 0;
 			$desc = "";
-			$resultado = mysql_query("SELECT * FROM comidapedido");
+			$resultado = mysql_query("SELECT * FROM comidapedido WHERE id_pedido = '$_SESSION[idpedido]'");
 			while($row1 = mysql_fetch_array($resultado) )
 			{
 				$valor += $row1['preco_comida']*$row1['quantidade'];
@@ -78,7 +86,7 @@
 			</tr>
 			
             <?php
-			$resultado = mysql_query("SELECT * FROM bebidapedido");
+			$resultado = mysql_query("SELECT * FROM bebidapedido WHERE id_pedido = '$_SESSION[idpedido]'");
 			while($row2 = mysql_fetch_array($resultado) )
 				
 			{
@@ -132,12 +140,14 @@
 			</tr>
 		</table>
 		<input id="bconfirm" type="submit" value="Fechar Pedido"/>
+                <br>
+                <button><a href="criarpedido.php" id="butao"> Novo Pedido </a></button>
 	</div>
   </form>
 </div></div>
 <br class="clearfloat">
 <div id="footer">
-Avenida Itabuna 760 - Ilhéus<br>
+Avenida Itabuna 760 - Ilhï¿½us<br>
 Telefone:(73)3634-5555<br>
 Copyright&copy; Lanchonet&trade;
 </div></body></html>

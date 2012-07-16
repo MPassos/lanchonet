@@ -10,7 +10,6 @@
 </div>
 <div id="menu">
   <a class="link" href="../index.html">&nbsp;&nbsp;Home&nbsp;&nbsp;</a>
-  <a class="link" href="../cardapio.html">&nbsp;&nbsp;Cardapio&nbsp;&nbsp;</a>
   <a class="link" href="../pedidos.html">&nbsp;&nbsp;Fila de pedidos&nbsp;&nbsp;</a>
 </div>
 <br class="clearfloat">
@@ -32,12 +31,12 @@
 		$permissao = ("INSERT INTO usuariotempermissao(id_usuario,id_permissao) VALUES('$idusuario','$idpermissao')");
 		mysql_query($permissao);
 		?>
-        <p>Usuário Cadastrado</p>
+        <p>Usuï¿½rio Cadastrado</p>
 	</div>
 </div>
 <br class="clearfloat">
 <div id="footer">
-Avenida Itabuna 760 - Ilhéus<br>
+Avenida Itabuna 760 - Ilhï¿½us<br>
 Telefone:(73)3634-5555<br>
 Copyright&copy; Lanchonet&trade;
 </div>

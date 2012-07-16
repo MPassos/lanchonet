@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,8 +13,7 @@
 </div>
 <div id="menu">
   <a class="link" href="cardapio.php">&nbsp;&nbsp;Cardapio &nbsp;&nbsp;&nbsp;</a>
-  <a class="link" href="pedidos.html">&nbsp;&nbsp;Fila de Pedidos &nbsp;&nbsp;</a> 
-  <a class="link" href="cadastro.html">&nbsp;&nbsp;Cadastro&nbsp;&nbsp;</a>
+  <a class="link" href="pedidos.php">&nbsp;&nbsp;Fila de Pedidos &nbsp;&nbsp;</a> 
 </div>
 <br class="clearfloat">
 <div id="login">	
@@ -27,7 +27,7 @@ include('connect.php');
 $idbeb = mysql_query("SELECT id_bebida FROM bebida WHERE nome = '$_POST[bebida]'");
 $row = mysql_fetch_array($idbeb);
 $id = $row['id_bebida'];
-$insert = "INSERT INTO pedidotembebida (id_pedido,id_bebida,quantidade,observacao) VALUES ('1','$id','$_POST[quantidade]','$_POST[observacao]')";
+$insert = "INSERT INTO pedidotembebida (id_pedido,id_bebida,quantidade,observacao) VALUES ('$_SESSION[idpedido]','$id','$_POST[quantidade]','$_POST[observacao]')";
 if(!mysql_query($insert)){
 			die('Erro: '.mysql_error());
 		}

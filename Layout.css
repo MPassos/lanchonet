@@ -81,6 +81,28 @@ td{
 	padding:0.1em;
 }
 
+h3{
+    text-align: center;
+    font-size: 50px;
+    font-family:cocacola;
+}
+
+h5
+{
+    font-size: 36px;
+    font-family:cocacola;
+    color: #FFF;
+}
+h4
+{
+    text-align: center;
+}
+form.login
+{
+    text-align: center;
+    padding: 0.5em;
+}
+
 table, td, th{
 	border-collapse:collapse;
 	border:3px solid red;

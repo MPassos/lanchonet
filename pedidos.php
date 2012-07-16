@@ -1,3 +1,11 @@
+<?php   
+        session_start();
+        unset($_SESSION['nome']);
+	unset($_SESSION['login']);
+	unset($_SESSION['id']);
+	session_destroy();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="pt-br"><head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -9,9 +17,7 @@
     Pedidos
 </div>
 <div id="menu">
-  <a class="link" href="index.html">&nbsp;&nbsp;Home&nbsp;&nbsp;</a>
-  <a class="link" href="cardapio.php">&nbsp;&nbsp;Cardapio&nbsp;&nbsp;</a>
-  <a class="link" href="cadastro.html">&nbsp;&nbsp;Cadastro&nbsp;&nbsp;</a>
+  <a class="link" href="index.php">&nbsp;&nbsp;Home&nbsp;&nbsp;</a>
 </div>
 <br class="clearfloat">
 <div id="bgwhite">
@@ -27,11 +33,11 @@
 	}
 	?>
   <br><br>
-  Tempo Estimado para conclusão do pedido: 30 min
+  Tempo Estimado para conclusï¿½o do pedido: 30 min
 </div></div>
 <br class="clearfloat">
 <div id="footer">
-Avenida Itabuna 760 - Ilhéus<br>
+Avenida Itabuna 760 - Ilhï¿½us<br>
 Telefone:(73)3634-5555<br>
 Copyright&copy; Lanchonet&trade;
 </div>
