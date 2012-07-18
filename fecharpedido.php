@@ -13,13 +13,19 @@
 </div>
 <div id="menu">
   <a class="link" href="cardapio.php">&nbsp;&nbsp;Cardapio &nbsp;&nbsp;&nbsp;</a>
-  <a class="link" href="pedidos.html">&nbsp;&nbsp;Fila de Pedidos &nbsp;&nbsp;</a> 
+  <a class="link" href="pedidos.php">&nbsp;&nbsp;Fila de Pedidos &nbsp;&nbsp;</a> 
 </div>
 <br class="clearfloat">
 <div id="bgwhite">
 <div id="conteudo">
 <?php
 include('php/connect.php');
+$selectdesc = "SELECT descricao FROM pedido WHERE descricao = 'Pedido Novo'";
+$desc = mysql_query($selectdesc);
+if($desc == 'Pedido Novo')
+{
+ header("Location: cardapio.php");   
+}else{
 $update = "UPDATE pedido SET descricao = '$_POST[nome]',preco = '$_POST[valor]' WHERE id_pedido = '$_SESSION[idpedido]'";
 if(!mysql_query($update)){
 	die('Erro'.mysql_error());
@@ -29,5 +35,6 @@ if(!mysql_query($update)){
 <a href="pedidos.php">Ver Fila</a>
 </div>
 </div>
+<?php } ?>
 </body>
 </html>

@@ -18,8 +18,6 @@ if($_SESSION == null){
 </div>
     <h5>Bem vindo <?php echo $_SESSION['login']; ?> </h5>    
 <div id="menu">
-  <a class="link" href="index.php">&nbsp;&nbsp;Home&nbsp;&nbsp;</a>
-  <a class="link" href="pedidos.php">&nbsp;&nbsp;Fila de Pedidos&nbsp;&nbsp;</a>
   <a class="link" href="logout.php">&nbsp;&nbsp;Logout&nbsp;&nbsp;</a>
 </div>
 <br class="clearfloat">
@@ -43,7 +41,7 @@ if($_SESSION == null){
 			while($row1 = mysql_fetch_array($resultado) )
 			{
 				$valor += $row1['preco_comida']*$row1['quantidade'];
-			?>
+			?>            
             <tr>
             <td>
             <?php
@@ -65,8 +63,8 @@ if($_SESSION == null){
 			 echo $row1['observacao']; 
 			?>
             </td>
-            <td>
-            Retirar
+            <td>    
+            <button type="submit"><a href="deletarcomida.php?id=<?php echo $row1['id_comida']; ?>">Retirar</a></button>
             </td>
             <?php    
 			}
@@ -113,8 +111,8 @@ if($_SESSION == null){
 			 $valor += $row2['preco_bebida']*$row2['quantidade'];
 			?>
             </td>
-            <td>
-            Retirar
+            <td>       
+            <button type="submit"><a href="deletarbebida.php?id=<?php echo $row2['id_bebida']; ?>">Retirar</a></button>
             </td>
             <?php    
 			}
@@ -141,13 +139,12 @@ if($_SESSION == null){
 		</table>
 		<input id="bconfirm" type="submit" value="Fechar Pedido"/>
                 <br>
-                <button><a href="criarpedido.php" id="butao"> Novo Pedido </a></button>
 	</div>
   </form>
 </div></div>
 <br class="clearfloat">
 <div id="footer">
-Avenida Itabuna 760 - Ilh�us<br>
+Avenida Itabuna 760 - Ilhéus<br>
 Telefone:(73)3634-5555<br>
 Copyright&copy; Lanchonet&trade;
 </div></body></html>

@@ -72,8 +72,16 @@ src: url('fontes/lokicola.ttf'),
 
 #butao{
 	padding:4px;
-	margin-left:5px;
 	margin-top:0;
+        margin-right: 80%;
+}
+
+#butao2{
+        float: left;
+	padding:4px;
+	margin-top:0;
+        position: relative;
+        left: 50%;
 }
 
 td{
@@ -130,7 +138,8 @@ table, td, th{
 }
 
 #bconfirm{
-	margin:auto;
+	margin-right: 34.7%;
+        
 }
 
 .link{
@@ -154,4 +163,37 @@ label.error{
 	clear:both;
 	margin-bottom:0px;
 	margin-top:0px;
+}
+
+input,label
+{
+ float: left; 
+}
+
+input
+{
+ float: right;
+ margin-right:35%; 
+}
+
+input#prof
+{
+    margin-right: 65.3%;
+}
+
+#loginlabel
+{
+ margin-left: 40%;
+}
+
+#centro
+{
+ position: relative;
+ left: 10%;
+}
+
+#none
+{
+ margin: 0;
+ float:none;
 }

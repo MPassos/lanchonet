@@ -37,7 +37,6 @@
   Lanchonet
 </div>
 <div id="menu">
-  <a class="link" href="pedidos.php">&nbsp;&nbsp;Fila de Pedidos &nbsp;&nbsp;</a> 
   <a class="link" href="cadastro.html">&nbsp;&nbsp;Cadastro&nbsp;&nbsp;</a>
   <br class="clearfloat">
 </div>
@@ -49,18 +48,20 @@
                           2 => "Usuário não encontrado");
     } 
 	?>
+            <div id="centro">
             <h4><?php echo($err_array[$err_id]);?>&nbsp;</h4>
             <h3>Login</h3>
             <form id="formulario" class="login">
-                <label for="login">Login:</label>
-                <input type="text" name ="login" />
+                <label for="login" id="loginlabel">Login:</label>
+                <input type="text" name ="login" id="logininput" />
                 <br><br>
-                <label for="senha">Senha:</label>
-                <input type="password" name ="senha" />
+                <label for="senha" id="loginlabel">Senha:</label>
+                <input type="password" name ="senha" id="loginlogininput" />
                 <br><br>
-                <button id="butao" type="submit" value="Logar">Logar</button>
-                <button id="butao" type="reset" value="Resetar">Resetar</button>
+                <button id="butao2" type="submit" value="Logar">Logar</button>
+                <button id="butao2" type="reset" value="Resetar">Resetar</button>
             </form>
+            </div>
     </div>
     </div>
     <div id="footer">

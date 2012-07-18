@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 3.4.5
 -- http://www.phpmyadmin.net
 --
@@ -319,20 +319,16 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `telefone` varchar(15) NOT NULL,
   `profissao` varchar(15) NOT NULL,
   `sanduiche` varchar(12) NOT NULL,
-  `id_comida` int(11) DEFAULT NULL,
-  `id_bebida` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `login` (`login`),
-  KEY `FK_Usuario_0` (`id_comida`),
-  KEY `FK_Usuario_1` (`id_bebida`)
+  UNIQUE KEY `login` (`login`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nome`, `data_nasc`, `login`, `senha`, `email`, `endereco`, `telefone`, `profissao`, `sanduiche`, `id_comida`, `id_bebida`) VALUES
-(7, 'Mateus Passos Soares Cardoso', '1990-11-05', 'Tetus', 'banana', 'mpsc.comp@gmail.com', 'Rua Júlio Brito', '7391110973', 'Estudante', 'picanha', NULL, NULL);
+INSERT INTO `usuario` (`id_usuario`, `nome`, `data_nasc`, `login`, `senha`, `email`, `endereco`, `telefone`, `profissao`, `sanduiche`) VALUES
+(7, 'Mateus Passos Soares Cardoso', '1990-11-05', 'Tetus', 'banana', 'mpsc.comp@gmail.com', 'Rua Júlio Brito', '7391110973', 'Estudante', 'picanha');
 
 -- --------------------------------------------------------
 
@@ -381,7 +377,7 @@ INSERT INTO `usuariotempermissao` (`id_usuario`, `id_permissao`) VALUES
 --
 DROP TABLE IF EXISTS `bebidapedido`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `bebidapedido` AS select `b`.`nome` AS `nome_bebida`,`b`.`preco` AS `preco_bebida`,`p`.`quantidade` AS `quantidade`,`p`.`observacao` AS `observacao`, `p`.`id_pedido`  from (`bebida` `b` join `pedidotembebida` `p` on((`b`.`id_bebida` = `p`.`id_bebida`)));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `bebidapedido` AS select `b`.`nome` AS `nome_bebida`,`b`.`preco` AS `preco_bebida`,`p`.`quantidade` AS `quantidade`,`p`.`observacao` AS `observacao`, `p`.`id_pedido`, `b`.`id_bebida`  from (`bebida` `b` join `pedidotembebida` `p` on((`b`.`id_bebida` = `p`.`id_bebida`)));
 
 -- --------------------------------------------------------
 
@@ -390,7 +386,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `comidapedido`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `comidapedido` AS select `c`.`nome` AS `nome_comida`,`c`.`preco` AS `preco_comida`,`p`.`quantidade` AS `quantidade`,`p`.`observacao` AS `observacao`,`p`.`id_pedido`   from (`comida` `c` join `pedidotemcomida` `p` on((`c`.`id_comida` = `p`.`id_comida`)));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `comidapedido` AS select `c`.`nome` AS `nome_comida`,`c`.`preco` AS `preco_comida`,`p`.`quantidade` AS `quantidade`,`p`.`observacao` AS `observacao`,`p`.`id_pedido`,`c`.`id_comida`   from (`comida` `c` join `pedidotemcomida` `p` on((`c`.`id_comida` = `p`.`id_comida`)));
 
 --
 -- Restrições para as tabelas dumpadas
@@ -418,13 +414,6 @@ ALTER TABLE `pedidotembebida`
 ALTER TABLE `pedidotemcomida`
   ADD CONSTRAINT `pedidotemcomida_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`),
   ADD CONSTRAINT `pedidotemcomida_ibfk_2` FOREIGN KEY (`id_comida`) REFERENCES `comida` (`id_comida`);
-
---
--- Restrições para a tabela `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `FK_Usuario_0` FOREIGN KEY (`id_comida`) REFERENCES `comida` (`id_comida`),
-  ADD CONSTRAINT `FK_Usuario_1` FOREIGN KEY (`id_bebida`) REFERENCES `bebida` (`id_bebida`);
 
 --
 -- Restrições para a tabela `usuariofazpedido`

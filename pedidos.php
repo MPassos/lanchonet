@@ -1,9 +1,5 @@
 <?php   
         session_start();
-        unset($_SESSION['nome']);
-	unset($_SESSION['login']);
-	unset($_SESSION['id']);
-	session_destroy();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -16,8 +12,9 @@
 <div id="header">
     Pedidos
 </div>
+    <h5>Você está logado como <?php echo $_SESSION['login']; ?> </h5>
 <div id="menu">
-  <a class="link" href="index.php">&nbsp;&nbsp;Home&nbsp;&nbsp;</a>
+    <a class="link" href="criarpedido.php">&nbsp;&nbsp;Novo Pedido&nbsp;&nbsp;</a>
 </div>
 <br class="clearfloat">
 <div id="bgwhite">

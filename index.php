@@ -18,7 +18,6 @@
 </div>
 <div id="menu">
   <a class="link" href="login.php">&nbsp;&nbsp;Login &nbsp;&nbsp;&nbsp;</a>
-  <a class="link" href="pedidos.php">&nbsp;&nbsp;Fila de Pedidos &nbsp;&nbsp;</a> 
   <a class="link" href="cadastro.html">&nbsp;&nbsp;Cadastro&nbsp;&nbsp;</a>
 </div>
 <br class="clearfloat">
