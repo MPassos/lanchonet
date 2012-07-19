@@ -31,8 +31,19 @@ $(document).ready(function(){
 				required: true
 			},
 			telefone:{
-				required: true,
-			}
+				required: true
+			},
+                        sanduiche:{
+                            required: true
+                        },
+                        bebida:{
+                            required: true
+                        },
+                        quantidade:{
+                            required:true,
+                            min: 0,
+                            number:true
+                        }
 		},
 		messages:{
 			nome:{
@@ -64,7 +75,18 @@ $(document).ready(function(){
 			},
 			telefone:{
 				required: "*O campo deve ser preenchido"
-			}
+			},
+                        comida:{
+                            required: "*O campo deve ser preenchido"
+                        },
+                        bebida:{
+                            required: "*O campo deve ser preenchido"
+                        },
+                        quantidade:{
+                            required: "*O campo deve ser preenchido",
+                            min:"Somente valores positivos",
+                            number: "Somente números"
+                        }
 		}
 	});
 });

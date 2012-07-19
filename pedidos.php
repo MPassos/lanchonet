@@ -15,6 +15,7 @@
     <h5>Você está logado como <?php echo $_SESSION['login']; ?> </h5>
 <div id="menu">
     <a class="link" href="criarpedido.php">&nbsp;&nbsp;Novo Pedido&nbsp;&nbsp;</a>
+    <a class="link" href="logout.php">&nbsp;&nbsp;Logout&nbsp;&nbsp;</a>
 </div>
 <br class="clearfloat">
 <div id="bgwhite">
@@ -22,15 +23,26 @@
 	<img id="imagem" src="img/bandeja.png" alt="bandeja" height="189">
 	<?php
 	include('php/connect.php');
-	$result = mysql_query("SELECT descricao FROM pedido");
+        $selectdesc = "SELECT * FROM pedido WHERE descricao = 'Pedido Novo' OR descricao = ''";
+        $desc = mysql_query($selectdesc);
+        $row = mysql_fetch_array($desc);
+        if($row['descricao'] == 'Pedido Novo' || $row['descricao'] == '' && $row['id_pedido'] == $_SESSION['idpedido'])
+        {
+        header("Location: cardapio.php?msg=1");   
+        }
+	$result = mysql_query("SELECT * FROM usuariopedido WHERE Data = CURRENT_DATE");
 	while($row = mysql_fetch_array($result)){	
 	?>
-    <p><?php echo $row['descricao'] ?></p>
+    <?php if($_SESSION['id'] == $row['Usuario'])
+    {
+        echo "<b><p>".$row['Descricao']."</b></p>";
+    }else
+    echo "<p>".$row['Descricao']."</p>"; ?>
     <?php
 	}
 	?>
   <br><br>
-  Tempo Estimado para conclus�o do pedido: 30 min
+  Seus pedidos estão em negrito !
 </div></div>
 <br class="clearfloat">
 <div id="footer">

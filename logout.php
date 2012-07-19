@@ -3,5 +3,5 @@
 	unset($_SESSION['login']);
 	unset($_SESSION['id']);
 	session_destroy();
-	header("Location: index.php");
+	header("Location: index.php?msg=2");
 ?>

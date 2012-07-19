@@ -9,13 +9,29 @@
   $row = mysql_fetch_array($resultado);
   $count = mysql_result($resultado,0,0);
   
+  $sqlpermissao = "SELECT * FROM usuariopermissao WHERE usuario = '$row[id_usuario]'";
+  $resultado2 = mysql_query($sqlpermissao);
+  $row2 = mysql_fetch_array($resultado2);
   if($count > 0)
+  {
+  if($row2['descricao'] == 'Admnistrador')
   {
       session_start();
       $_SESSION['nome'] = $row['nome'];
       $_SESSION['login'] = $row['login'];
       $_SESSION['id'] = $row['id_usuario'];
+      $_SESSION['funcao'] = $row2['descricao'];
+      header("Location: adminindex.php");
+  }
+  else
+  {
+      session_start();
+      $_SESSION['nome'] = $row['nome'];
+      $_SESSION['login'] = $row['login'];
+      $_SESSION['id'] = $row['id_usuario'];
+      $_SESSION['funcao'] = $row2['descricao'];
       header("Location: criarpedido.php");
+  }
   }else{
       $err_id = 2;  
   }

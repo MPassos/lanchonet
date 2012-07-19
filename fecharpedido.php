@@ -20,13 +20,8 @@
 <div id="conteudo">
 <?php
 include('php/connect.php');
-$selectdesc = "SELECT descricao FROM pedido WHERE descricao = 'Pedido Novo'";
-$desc = mysql_query($selectdesc);
-if($desc == 'Pedido Novo')
-{
- header("Location: cardapio.php");   
-}else{
-$update = "UPDATE pedido SET descricao = '$_POST[nome]',preco = '$_POST[valor]' WHERE id_pedido = '$_SESSION[idpedido]'";
+
+$update = "UPDATE pedido SET descricao = '$_POST[nome]',preco = '$_POST[valor]', data_pedido = CURRENT_DATE WHERE id_pedido = '$_SESSION[idpedido]'";
 if(!mysql_query($update)){
 	die('Erro'.mysql_error());
 }
@@ -35,6 +30,5 @@ if(!mysql_query($update)){
 <a href="pedidos.php">Ver Fila</a>
 </div>
 </div>
-<?php } ?>
 </body>
 </html>

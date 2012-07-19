@@ -3,6 +3,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <title>Lanchonet</title>
   <link rel="stylesheet" type="text/css" href="Layout.css" />
+  <script type="text/javascript" src="jquery/jquery-1.6.1.js"></script>
+  <script type="text/javascript" src="jquery/jquery.validate.js"></script>
+  <script type="text/javascript" src="jquery/jquery.maskedinput.js"></script>
+  <script type="text/javascript" src="jquery/validacao.js"></script>
 </head>
 <body id="corpo">
 <div id="header">
@@ -20,7 +24,7 @@ Senha:
 <div id="conteudo">
 	<form method="post" action="php/pedidobebida.php">
 		Bebida
-		<select id="sanduiche" name="bebida">
+		<select id="sanduiche" id="formulario" name="bebida">
 			<option value="vazio">Selecione</option>
 			<option value="Suco de Laranja">Suco de Laranja</option>
 			<option value="Suco de Cacau">Suco de Cacau</option>

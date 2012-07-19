@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: 25/06/2012 às 02h00min
+-- Tempo de Geração: 19/07/2012 às 18h23min
 -- Versão do Servidor: 5.5.16
 -- Versão do PHP: 5.3.8
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de Dados: `lanchonet`
 --
-CREATE DATABASE `lanchonet` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `lanchonet`;
 
 -- --------------------------------------------------------
 
@@ -62,6 +60,8 @@ CREATE TABLE IF NOT EXISTS `bebidapedido` (
 ,`preco_bebida` float
 ,`quantidade` int(11)
 ,`observacao` varchar(40)
+,`id_pedido` int(11)
+,`id_bebida` int(11)
 );
 -- --------------------------------------------------------
 
@@ -102,6 +102,8 @@ CREATE TABLE IF NOT EXISTS `comidapedido` (
 ,`preco_comida` float
 ,`quantidade` int(11)
 ,`observacao` varchar(40)
+,`id_pedido` int(11)
+,`id_comida` int(11)
 );
 -- --------------------------------------------------------
 
@@ -227,15 +229,17 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `id_pedido` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` text,
   `preco` float DEFAULT NULL,
+  `data_pedido` date NOT NULL,
   PRIMARY KEY (`id_pedido`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Extraindo dados da tabela `pedido`
 --
 
-INSERT INTO `pedido` (`id_pedido`, `descricao`, `preco`) VALUES
-(1, 'X-Bacon X-File Suco de Laranja Suco de Umbu ', 22.5);
+INSERT INTO `pedido` (`id_pedido`, `descricao`, `preco`, `data_pedido`) VALUES
+(15, 'X-Burguer Coca Cola ', 7, '0000-00-00'),
+(16, 'X-Egg ', 10, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -257,8 +261,7 @@ CREATE TABLE IF NOT EXISTS `pedidotembebida` (
 --
 
 INSERT INTO `pedidotembebida` (`id_pedido`, `id_bebida`, `quantidade`, `observacao`) VALUES
-(1, 1, 1, NULL),
-(1, 4, 3, 'Pouco Açúcar');
+(15, 5, 1, '');
 
 -- --------------------------------------------------------
 
@@ -280,8 +283,8 @@ CREATE TABLE IF NOT EXISTS `pedidotemcomida` (
 --
 
 INSERT INTO `pedidotemcomida` (`id_pedido`, `id_comida`, `quantidade`, `observacao`) VALUES
-(1, 7, 1, NULL),
-(1, 5, 1, 'Sem Queijo');
+(15, 1, 1, ''),
+(16, 2, 2, '');
 
 -- --------------------------------------------------------
 
@@ -293,14 +296,15 @@ CREATE TABLE IF NOT EXISTS `permissao` (
   `id_permissao` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` char(40) DEFAULT NULL,
   PRIMARY KEY (`id_permissao`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Extraindo dados da tabela `permissao`
 --
 
 INSERT INTO `permissao` (`id_permissao`, `descricao`) VALUES
-(1, 'Fazer Pedidos');
+(1, 'Fazer Pedidos'),
+(2, 'Admnistrador');
 
 -- --------------------------------------------------------
 
@@ -321,14 +325,16 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `sanduiche` varchar(12) NOT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome`, `data_nasc`, `login`, `senha`, `email`, `endereco`, `telefone`, `profissao`, `sanduiche`) VALUES
-(7, 'Mateus Passos Soares Cardoso', '1990-11-05', 'Tetus', 'banana', 'mpsc.comp@gmail.com', 'Rua Júlio Brito', '7391110973', 'Estudante', 'picanha');
+(7, 'Mateus Passos Soares Cardoso', '1990-11-05', 'Tetus', 'banana', 'mpsc.comp@gmail.com', 'Rua Júlio Brito', '7391110973', 'Estudante', 'picanha'),
+(8, 'Caio', '1990-09-16', 'Caio', 'cachorro', 'caiosuzart@gmail.com', 'Rua Júlio Brito', '7391110973', 'Estudante', 'burguer'),
+(9, 'admin', '2012-07-19', 'admin', 'admin', 'admin@admin.com', 'admin', '12378990', 'admin', 'X Bacon');
 
 -- --------------------------------------------------------
 
@@ -348,8 +354,29 @@ CREATE TABLE IF NOT EXISTS `usuariofazpedido` (
 --
 
 INSERT INTO `usuariofazpedido` (`id_usuario`, `id_pedido`) VALUES
-(7, 1);
+(7, 15),
+(8, 16);
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura stand-in para visualizar `usuariopedido`
+--
+CREATE TABLE IF NOT EXISTS `usuariopedido` (
+`Pedido` int(11)
+,`Usuario` int(11)
+,`Descricao` text
+);
+-- --------------------------------------------------------
+
+--
+-- Estrutura stand-in para visualizar `usuariopermissao`
+--
+CREATE TABLE IF NOT EXISTS `usuariopermissao` (
+`usuario` int(11)
+,`idpermissao` int(11)
+,`descricao` char(40)
+);
 -- --------------------------------------------------------
 
 --
@@ -368,7 +395,9 @@ CREATE TABLE IF NOT EXISTS `usuariotempermissao` (
 --
 
 INSERT INTO `usuariotempermissao` (`id_usuario`, `id_permissao`) VALUES
-(7, 1);
+(7, 1),
+(8, 1),
+(9, 2);
 
 -- --------------------------------------------------------
 
@@ -377,7 +406,7 @@ INSERT INTO `usuariotempermissao` (`id_usuario`, `id_permissao`) VALUES
 --
 DROP TABLE IF EXISTS `bebidapedido`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `bebidapedido` AS select `b`.`nome` AS `nome_bebida`,`b`.`preco` AS `preco_bebida`,`p`.`quantidade` AS `quantidade`,`p`.`observacao` AS `observacao`, `p`.`id_pedido`, `b`.`id_bebida`  from (`bebida` `b` join `pedidotembebida` `p` on((`b`.`id_bebida` = `p`.`id_bebida`)));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `bebidapedido` AS select `b`.`nome` AS `nome_bebida`,`b`.`preco` AS `preco_bebida`,`p`.`quantidade` AS `quantidade`,`p`.`observacao` AS `observacao`,`p`.`id_pedido` AS `id_pedido`,`b`.`id_bebida` AS `id_bebida` from (`bebida` `b` join `pedidotembebida` `p` on((`b`.`id_bebida` = `p`.`id_bebida`)));
 
 -- --------------------------------------------------------
 
@@ -386,7 +415,25 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `comidapedido`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `comidapedido` AS select `c`.`nome` AS `nome_comida`,`c`.`preco` AS `preco_comida`,`p`.`quantidade` AS `quantidade`,`p`.`observacao` AS `observacao`,`p`.`id_pedido`,`c`.`id_comida`   from (`comida` `c` join `pedidotemcomida` `p` on((`c`.`id_comida` = `p`.`id_comida`)));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `comidapedido` AS select `c`.`nome` AS `nome_comida`,`c`.`preco` AS `preco_comida`,`p`.`quantidade` AS `quantidade`,`p`.`observacao` AS `observacao`,`p`.`id_pedido` AS `id_pedido`,`c`.`id_comida` AS `id_comida` from (`comida` `c` join `pedidotemcomida` `p` on((`c`.`id_comida` = `p`.`id_comida`)));
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para visualizar `usuariopedido`
+--
+DROP TABLE IF EXISTS `usuariopedido`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usuariopedido` AS select `p`.`id_pedido` AS `Pedido`,`u`.`id_usuario` AS `Usuario`,`p`.`descricao` AS `Descricao`,`p`.`data_pedido` AS `Data`  from ((`usuario` `u` join `usuariofazpedido` on((`u`.`id_usuario` = `usuariofazpedido`.`id_usuario`))) join `pedido` `p` on((`usuariofazpedido`.`id_pedido` = `p`.`id_pedido`)));
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para visualizar `usuariopermissao`
+--
+DROP TABLE IF EXISTS `usuariopermissao`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usuariopermissao` AS select `u`.`id_usuario` AS `usuario`,`p`.`id_permissao` AS `idpermissao`,`p`.`descricao` AS `descricao` from ((`usuario` `u` join `usuariotempermissao` on((`u`.`id_usuario` = `usuariotempermissao`.`id_usuario`))) join `permissao` `p` on((`usuariotempermissao`.`id_permissao` = `p`.`id_permissao`)));
 
 --
 -- Restrições para as tabelas dumpadas
@@ -419,8 +466,8 @@ ALTER TABLE `pedidotemcomida`
 -- Restrições para a tabela `usuariofazpedido`
 --
 ALTER TABLE `usuariofazpedido`
-  ADD CONSTRAINT `usuariofazpedido_ibfk_2` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`),
-  ADD CONSTRAINT `usuariofazpedido_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+  ADD CONSTRAINT `usuariofazpedido_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
+  ADD CONSTRAINT `usuariofazpedido_ibfk_2` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`);
 
 --
 -- Restrições para a tabela `usuariotempermissao`

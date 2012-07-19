@@ -23,6 +23,15 @@ if($_SESSION == null){
 <br class="clearfloat">
 <div id="bgwhite">
 <div id="conteudo">
+    <?php if (isset($_REQUEST['msg']))
+    {
+        switch($_REQUEST['msg'])
+        {
+            case 1:
+                echo "<b><p>Complete o seu pedido !</b></p>";
+        }
+    }
+?>
   <form method="post" action="fecharpedido.php"> <?php //Como ainda nï¿½o temos controle de sessï¿½o o pedido nï¿½o pode ser cadastrado corretamente no banco sendo esta seï¿½ï¿½o apenas uma breve demosntraï¿½ï¿½o da funcionalidade  ?>
 	<div id = "contcom">
 		<table>
@@ -144,7 +153,7 @@ if($_SESSION == null){
 </div></div>
 <br class="clearfloat">
 <div id="footer">
-Avenida Itabuna 760 - Ilhéus<br>
+Avenida Itabuna 760 - Ilhï¿½us<br>
 Telefone:(73)3634-5555<br>
 Copyright&copy; Lanchonet&trade;
 </div></body></html>
