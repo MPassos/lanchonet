@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: 19/07/2012 às 18h23min
+-- Tempo de Geração: 19/07/2012 às 20h28min
 -- Versão do Servidor: 5.5.16
 -- Versão do PHP: 5.3.8
 
@@ -231,15 +231,7 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `preco` float DEFAULT NULL,
   `data_pedido` date NOT NULL,
   PRIMARY KEY (`id_pedido`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
-
---
--- Extraindo dados da tabela `pedido`
---
-
-INSERT INTO `pedido` (`id_pedido`, `descricao`, `preco`, `data_pedido`) VALUES
-(15, 'X-Burguer Coca Cola ', 7, '0000-00-00'),
-(16, 'X-Egg ', 10, '0000-00-00');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 -- --------------------------------------------------------
 
@@ -256,13 +248,6 @@ CREATE TABLE IF NOT EXISTS `pedidotembebida` (
   KEY `id_bebida` (`id_bebida`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `pedidotembebida`
---
-
-INSERT INTO `pedidotembebida` (`id_pedido`, `id_bebida`, `quantidade`, `observacao`) VALUES
-(15, 5, 1, '');
-
 -- --------------------------------------------------------
 
 --
@@ -277,14 +262,6 @@ CREATE TABLE IF NOT EXISTS `pedidotemcomida` (
   KEY `id_pedido` (`id_pedido`),
   KEY `id_comida` (`id_comida`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `pedidotemcomida`
---
-
-INSERT INTO `pedidotemcomida` (`id_pedido`, `id_comida`, `quantidade`, `observacao`) VALUES
-(15, 1, 1, ''),
-(16, 2, 2, '');
 
 -- --------------------------------------------------------
 
@@ -334,7 +311,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `nome`, `data_nasc`, `login`, `senha`, `email`, `endereco`, `telefone`, `profissao`, `sanduiche`) VALUES
 (7, 'Mateus Passos Soares Cardoso', '1990-11-05', 'Tetus', 'banana', 'mpsc.comp@gmail.com', 'Rua Júlio Brito', '7391110973', 'Estudante', 'picanha'),
 (8, 'Caio', '1990-09-16', 'Caio', 'cachorro', 'caiosuzart@gmail.com', 'Rua Júlio Brito', '7391110973', 'Estudante', 'burguer'),
-(9, 'admin', '2012-07-19', 'admin', 'admin', 'admin@admin.com', 'admin', '12378990', 'admin', 'X Bacon');
+(9, 'Admnistrador', '2012-07-19', 'admin', '123456', 'admin@admin.com', 'admin', '12378990', 'admin', 'X Bacon');
 
 -- --------------------------------------------------------
 
@@ -349,14 +326,6 @@ CREATE TABLE IF NOT EXISTS `usuariofazpedido` (
   KEY `id_pedido` (`id_pedido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `usuariofazpedido`
---
-
-INSERT INTO `usuariofazpedido` (`id_usuario`, `id_pedido`) VALUES
-(7, 15),
-(8, 16);
-
 -- --------------------------------------------------------
 
 --
@@ -366,6 +335,7 @@ CREATE TABLE IF NOT EXISTS `usuariopedido` (
 `Pedido` int(11)
 ,`Usuario` int(11)
 ,`Descricao` text
+,`Data` date
 );
 -- --------------------------------------------------------
 
@@ -424,7 +394,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `usuariopedido`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usuariopedido` AS select `p`.`id_pedido` AS `Pedido`,`u`.`id_usuario` AS `Usuario`,`p`.`descricao` AS `Descricao`,`p`.`data_pedido` AS `Data`  from ((`usuario` `u` join `usuariofazpedido` on((`u`.`id_usuario` = `usuariofazpedido`.`id_usuario`))) join `pedido` `p` on((`usuariofazpedido`.`id_pedido` = `p`.`id_pedido`)));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usuariopedido` AS select `p`.`id_pedido` AS `Pedido`,`u`.`id_usuario` AS `Usuario`,`p`.`descricao` AS `Descricao`,`p`.`data_pedido` AS `Data` from ((`usuario` `u` join `usuariofazpedido` on((`u`.`id_usuario` = `usuariofazpedido`.`id_usuario`))) join `pedido` `p` on((`usuariofazpedido`.`id_pedido` = `p`.`id_pedido`)));
 
 -- --------------------------------------------------------
 

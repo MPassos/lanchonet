@@ -81,7 +81,7 @@
     </div>
     </div>
     <div id="footer">
-Avenida Itabuna 760 - IlhÃ©us<br>
+Avenida Itabuna 760 - Ilhéus<br>
 Telefone:(73)3634-5555<br>
 Copyright&copy; Lanchonet&trade;
 </div>

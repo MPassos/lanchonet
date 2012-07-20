@@ -24,14 +24,14 @@
 <div id="bgwhite">
 <div id="conteudo">
   <p>Bem vindo ao sistema de gerencimento da LanchoNet</p>
-  <p>VocÃª estÃ¡ logado como <?php echo $_SESSION['nome']; ?> </p>
+  <p>Você está logado como <?php echo $_SESSION['nome']; ?> </p>
   <br>
   <br>
 </div>
 </div>
 <br class="clearfloat">
 <div id="footer">
-Avenida Itabuna 760 - IlhÃ©us<br>
+Avenida Itabuna 760 - Ilhéus<br>
 Telefone:(73)3634-5555<br>
 Copyright&copy; Lanchonet&trade;
 </div>

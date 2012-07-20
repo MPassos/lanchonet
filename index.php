@@ -28,21 +28,21 @@
       switch($_REQUEST['msg'])
       {
           case 1:
-              echo "<b><p>Ãrea restrita a admnistradores do Sistema </b></p>";
+              echo "<b><p>Área restrita a admnistradores do Sistema </b></p>";
               break;
           case 2:
-              echo "<b><p>VocÃª efetuou o logout com sucesso </b></p>";
+              echo "<b><p>Você efetuou o logout com sucesso </b></p>";
               break;
       }   
     }
 ?>
 <div id="conteudo">
-  Nada como um bom lanche sem demora, nÃ£o Ã©?<br>
-  Essa Ã© a proposta da Lanchonet!<br>
-  Aqui vocÃª faz seu pedido sem sair de casa, direto da internet e entÃ£o Ã© sÃ³ esperar pela chegada de seu banquete.<br>
-  NÃ£o precisa mais ficar esperando na mesa, sofrendo ao observar os outros clientes deliciando-se enquanto seu pedido Ã© preparado.<br>
-  Com nosso sistema de estimativa de tempo de preparo, vocÃª sÃ³ precisa sair de casa na hora que seu lanche estiver pronto.<br>
-  Com um cardÃ¡pio diversificado e flexÃ­vel nÃ£o hÃ¡ mais nada a esperar, a nÃ£o ser satisfaÃ§Ã£o e o estÃ´mago cheio!<br>
+  Nada como um bom lanche sem demora, não é?<br>
+  Essa é a proposta da Lanchonet!<br>
+  Aqui você faz seu pedido sem sair de casa, direto da internet e então é só esperar pela chegada de seu banquete.<br>
+  Não precisa mais ficar esperando na mesa, sofrendo ao observar os outros clientes deliciando-se enquanto seu pedido é preparado.<br>
+  Com nosso sistema de estimativa de tempo de preparo, você só precisa sair de casa na hora que seu lanche estiver pronto.<br>
+  Com um cardápio diversificado e flexí­vel não há mais nada a esperar, a não ser satisfação e o estômago cheio!<br>
   <br>
   <br>
   <ul>
@@ -53,7 +53,7 @@
 </div>
 <br class="clearfloat">
 <div id="footer">
-Avenida Itabuna 760 - IlhÃ©us<br>
+Avenida Itabuna 760 - Ilhéus<br>
 Telefone:(73)3634-5555<br>
 Copyright&copy; Lanchonet&trade;
 </div>

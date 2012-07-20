@@ -13,7 +13,7 @@
     Pedidos
 </div>
 <div id="menu">
-    <a class="link" href="adminindex.php">&nbsp;&nbsp;InÃ­cio&nbsp;&nbsp;</a>
+    <a class="link" href="adminindex.php">&nbsp;&nbsp;Início&nbsp;&nbsp;</a>
     <a class="link" href="logout.php">&nbsp;&nbsp;Sair&nbsp;&nbsp;</a>
 </div>
 <br class="clearfloat">
@@ -48,7 +48,7 @@
 </div></div>
 <br class="clearfloat">
 <div id="footer">
-Avenida Itabuna 760 - Ilhï¿½us<br>
+Avenida Itabuna 760 - Ilhéus<br>
 Telefone:(73)3634-5555<br>
 Copyright&copy; Lanchonet&trade;
 </div>

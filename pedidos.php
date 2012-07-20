@@ -12,7 +12,7 @@
 <div id="header">
     Pedidos
 </div>
-    <h5>VocÃª estÃ¡ logado como <?php echo $_SESSION['login']; ?> </h5>
+    <h5>Você está logado como <?php echo $_SESSION['login']; ?> </h5>
 <div id="menu">
     <a class="link" href="criarpedido.php">&nbsp;&nbsp;Novo Pedido&nbsp;&nbsp;</a>
     <a class="link" href="logout.php">&nbsp;&nbsp;Logout&nbsp;&nbsp;</a>
@@ -42,11 +42,11 @@
 	}
 	?>
   <br><br>
-  Seus pedidos estÃ£o em negrito !
+  Seus pedidos estão em negrito !
 </div></div>
 <br class="clearfloat">
 <div id="footer">
-Avenida Itabuna 760 - Ilhï¿½us<br>
+Avenida Itabuna 760 - Ilhéus<br>
 Telefone:(73)3634-5555<br>
 Copyright&copy; Lanchonet&trade;
 </div>
